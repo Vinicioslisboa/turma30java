@@ -1,0 +1,183 @@
+[33mcommit a8a1c9d46a58cd82a434750e0ccb7d29719125cd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: vinicioslisboa <developerlisboa@gmail.com>
+Date:   Mon Jul 26 17:22:06 2021 -0300
+
+    TODOS OS EXERCÍCIOS 2
+
+[1mdiff --git "a/Portugol/Exerc\303\255cios 2/ex_2_a1_clean_code.por" "b/Portugol/Exerc\303\255cios 2/ex_2_a1_clean_code.por"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..905243f[m
+[1m--- /dev/null[m
+[1m+++ "b/Portugol/Exerc\303\255cios 2/ex_2_a1_clean_code.por"[m	
+[36m@@ -0,0 +1,41 @@[m
+[32m+[m[32mprograma[m
+[32m+[m[32m{[m
+[32m+[m[41m	[m
+[32m+[m	[32mfuncao inicio()[m
+[32m+[m	[32m{[m
+[32m+[m		[32mreal peso, kgExcedente, taxa[m
+[32m+[m		[32mconst real  multa = 4.0, pesoBase =50.0[m[41m [m
+[32m+[m[41m		[m
+[32m+[m			[32mescreva("Insira o peso do produto: ")[m
+[32m+[m			[32mleia(peso)[m
+[32m+[m
+[32m+[m		[32mkgExcedente = (peso - pesoBase)[m
+[32m+[m		[32mtaxa = (kgExcedente * multa)[m
+[32m+[m
+[32m+[m		[32mse(peso <= pesoBase)[m
+[32m+[m		[32m{[m
+[32m+[m[41m			[m
+[32m+[m			[32mescreva("Seu produto pesou: ",peso, "\nLiberado sem taxação")[m
+[32m+[m[41m	[m
+[32m+[m		[32m}[m
+[32m+[m[41m		[m
+[32m+[m		[32msenao se(peso > pesoBase)[m
+[32m+[m		[32m{[m
+[32m+[m
+[32m+[m			[32mescreva("Seu produto pesou: ",peso,"kg \nExcedente de: ",kgExcedente, "kg \nSua taxa é de: ",taxa, " R$")[m
+[32m+[m		[32m}[m
+[32m+[m[41m		[m
+[32m+[m[41m		[m
+[32m+[m	[32m}[m
+[32m+[m[32m}[m
+[32m+[m[32m/* $$$ Portugol Studio $$$[m[41m [m
+[32m+[m[32m *[m[41m [m
+[32m+[m[32m * Esta seção do arquivo guarda informações do Portugol Studio.[m
+[32m+[m[32m * Você pode apagá-la se estiver utilizando outro editor.[m
+[32m+[m[32m *[m[41m [m
+[32m+[m[32m * @POSICAO-CURSOR = 454;[m[41m [m
+[32m+[m[32m * @PONTOS-DE-PARADA = ;[m
+[32m+[m[32m * @SIMBOLOS-INSPECIONADOS = ;[m
+[32m+[m[32m * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;[m
+[32m+[m[32m * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;[m
+[32m+[m[32m */[m
+\ No newline at end of file[m
+[1mdiff --git "a/Portugol/Exerc\303\255cios 2/ex_2_a2_clean_code.por" "b/Portugol/Exerc\303\255cios 2/ex_2_a2_clean_code.por"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..229e85e[m
+[1m--- /dev/null[m
+[1m+++ "b/Portugol/Exerc\303\255cios 2/ex_2_a2_clean_code.por"[m	
+[36m@@ -0,0 +1,44 @@[m
+[32m+[m[32mprograma[m
+[32m+[m[32m{[m
+[32m+[m[41m	[m
+[32m+[m	[32mfuncao inicio()[m
+[32m+[m	[32m{[m
+[32m+[m		[32mcadeia codigo[m
+[32m+[m		[32minteiro horasTrabalhadas=0, horasExecedente=0[m
+[32m+[m		[32mreal salarioTotal=0.00, salarioExcedente=0.00[m
+[32m+[m		[32mconst real SALARIO_BASE=500.00, VALOR_EXCEDENTE = 20.0, VALOR_HORAS_BASE =10.0[m
+[32m+[m		[32mconst inteiro Horas_BASE = 50[m
+[32m+[m
+[32m+[m		[32mescreva("Digite o código do funcionário(a): ")[m
+[32m+[m		[32mleia(codigo)[m
+[32m+[m
+[32m+[m		[32mescreva("Digite a quantidade de horas trabalhadas: ")[m
+[32m+[m		[32mleia(horasTrabalhadas)[m
+[32m+[m
+[32m+[m	[32mse(horasTrabalhadas<=Horas_BASE)[m
+[32m+[m	[32m{[m
+[32m+[m		[32msalarioTotal=horasTrabalhadas*VALOR_HORAS_BASE[m
+[32m+[m	[32m}[m
+[32m+[m	[32msenao[m
+[32m+[m	[32m{[m
+[32m+[m		[32mhorasExecedente = horasTrabalhadas-Horas_BASE[m
+[32m+[m		[32msalarioExcedente = horasExecedente*VALOR_EXCEDENTE[m
+[32m+[m		[32msalarioTotal = salarioExcedente + SALARIO_BASE[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m		[32mescreva("\nSalário total : R$",salarioTotal)[m
+[32m+[m		[32mescreva("\nSalário excedente : R$",salarioExcedente)[m
+[32m+[m[41m		[m
+[32m+[m	[32m}[m
+[32m+[m[32m}[m
+[32m+[m[32m/* $$$ Portugol Studio $$$[m[41m [m
+[32m+[m[32m *[m[41m [m
+[32m+[m[32m * Esta seção do arquivo guarda informações do Portugol Studio.[m
+[32m+[m[32m * Você pode apagá-la se estiver utilizando outro editor.[m
+[32m+[m[32m *[m[41m [m
+[32m+[m[32m * @POSICAO-CURSOR = 323;[m[41m [m
+[32m+[m[32m * @PONTOS-DE-PARADA = ;[m
+[32m+[m[32m * @SIMBOLOS-INSPECIONADOS = ;[m
+[32m+[m[32m * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;[m
+[32m+[m[32m * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;[m
+[32m+[m[32m */[m
+\ No newline at end of file[m
+[1mdiff --git "a/Portugol/Exerc\303\255cios 2/ex_2_a5.por" "b/Portugol/Exerc\303\255cios 2/ex_2_a5.por"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..eff4353[m
+[1m--- /dev/null[m
+[1m+++ "b/Portugol/Exerc\303\255cios 2/ex_2_a5.por"[m	
+[36m@@ -0,0 +1,39 @@[m
+[32m+[m[32mprograma[m[41m[m
+[32m+[m[32m{[m[41m[m
+[32m+[m[41m	[m
+[32m+[m	[32mfuncao inicio()[m[41m[m
+[32m+[m	[32m{[m[41m[m
+[32m+[m		[32mreal indicePoluicao[m
+[32m+[m
+[32m+[m		[32mescreva("Digite o índice de poluíção: ")[m
+[32m+[m		[32mleia(indicePoluicao)[m
+[32m+[m
+[32m+[m		[32mse(indicePoluicao ==0.3)[m
+[32m+[m		[32m{[m
+[32m+[m			[32mescreva("Indústrias do 1º grupo devem suspender suas operações, o índice atual de poluíção é: " ,indicePoluicao)[m
+[32m+[m		[32m}[m
+[32m+[m		[32msenao se(indicePoluicao ==0.4)[m
+[32m+[m		[32m{[m
+[32m+[m			[32mescreva("Indústrias dos 1º e 2º grupos devem suspender suas operações, o índice atual de poluíção é: " ,indicePoluicao)[m
+[32m+[m		[32m}[m
+[32m+[m		[32msenao se(indicePoluicao >=0.5)[m
+[32m+[m		[32m{[m
+[32m+[m			[32mescreva("Todos os grupos devem suspender suas operações, o índice atual de poluíção é: " ,indicePoluicao)[m
+[32m+[m		[32m}[m
+[32m+[m		[32msenao[m
+[32m+[m		[32m{[m
+[32m+[m			[32mescreva("Operações liberadas, o índice atual de poluíção é: " ,indicePoluicao)[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m/* $$$ Portugol Studio $$$[m[41m [m
+[32m+[m[32m *[m[41m [m
+[32m+[m[32m * Esta seção do arquivo guarda informações do Portugol Studio.[m
+[32m+[m[32m * Você pode apagá-la se estiver utilizando outro editor.[m
+[32m+[m[32m *[m[41m [m
+[32m+[m[32m * @POSICAO-CURSOR = 601;[m[41m [m
+[32m+[m[32m * @PONTOS-DE-PARADA = ;[m
+[32m+[m[32m * @SIMBOLOS-INSPECIONADOS = ;[m
+[32m+[m[32m * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;[m
+[32m+[m[32m * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;[m
+[32m+[m[32m */[m
+\ No newline at end of file[m
+
+[33mcommit cdf338e5046cb3198e9065e8caac0d7e4c38b401[m
+Author: vinicioslisboa <developerlisboa@gmail.com>
+Date:   Mon Jul 26 15:21:38 2021 -0300
+
+    exercício 2 incompleto
+
+[1mdiff --git a/Portugol/ex_1_a1.por "b/Portugol/Exerc\303\255cios 1/ex_1_a1.por"[m
+[1msimilarity index 100%[m
+[1mrename from Portugol/ex_1_a1.por[m
+[1mrename to "Portugol/Exerc\303\255cios 1/ex_1_a1.por"[m
+[1mdiff --git a/Portugol/ex_1_a2.por "b/Portugol/Exerc\303\255cios 1/ex_1_a2.por"[m
+[1msimilarity index 100%[m
+[1mrename from Portugol/ex_1_a2.por[m
+[1mrename to "Portugol/Exerc\303\255cios 1/ex_1_a2.por"[m
+[1mdiff --git a/Portugol/ex_1_a3.por "b/Portugol/Exerc\303\255cios 1/ex_1_a3.por"[m
+[1msimilarity index 100%[m
+[1mrename from Portugol/ex_1_a3.por[m
+[1mrename to "Portugol/Exerc\303\255cios 1/ex_1_a3.por"[m
+[1mdiff --git a/Portugol/ex_1_a4.por "b/Portugol/Exerc\303\255cios 1/ex_1_a4.por"[m
+[1msimilarity index 100%[m
+[1mrename from Portugol/ex_1_a4.por[m
+[1mrename to "Portugol/Exerc\303\255cios 1/ex_1_a4.por"[m
+[1mdiff --git a/Portugol/ex_1_a5.por "b/Portugol/Exerc\303\255cios 1/ex_1_a5.por"[m
+[1msimilarity index 100%[m
+[1mrename from Portugol/ex_1_a5.por[m
+[1mrename to "Portugol/Exerc\303\255cios 1/ex_1_a5.por"[m
+[1mdiff --git a/Portugol/ex_1_a6.por "b/Portugol/Exerc\303\255cios 1/ex_1_a6.por"[m
+[1msimilarity index 100%[m
+[1mrename from Portugol/ex_1_a6.por[m
+[1mrename to "Portugol/Exerc\303\255cios 1/ex_1_a6.por"[m
+[1mdiff --git a/Portugol/ex_1_a7.por "b/Portugol/Exerc\303\255cios 
