@@ -11,8 +11,8 @@ programa
 		const inteiro HABITANTES=3
 
 		inteiro numeroFilhos
-		real salario=0.00, salarioTotal=0.00, mediaSalarial=0.00, mediaFilhos=0.00, maiorSalario=0.00, percentualSalario100reais=0.00
-		real totalFilhos=0.00, contadorPercentual100reais=0.00, menorSalario=0.00
+		real salario, salarioTotal=0.00, mediaSalarial=0.00, mediaFilhos=0.00, maiorSalario=0.00, percentualSalario100reais=0.00
+		real totalFilhos=0.00, contadorPercentual100reais=0.00, menorSalario=100.000
 
 		para(inteiro x=1 ; x<= HABITANTES ; x++)
 		{
@@ -25,14 +25,14 @@ programa
 			salarioTotal += salario
 			totalFilhos += numeroFilhos
 
-			se( maiorSalario < salario) //entender essa lógica - questionar o ED
+			se( maiorSalario < salario) 
 			{
 				maiorSalario = salario
 			}
-			//se( menorSalario > salario)
-			//{
-			//	menorSalario = salario
-			//}
+			se( menorSalario > salario e salario > 0)
+			{
+				menorSalario = salario
+			}
 			se(salario <= 100)
 			{
 				contadorPercentual100reais++
@@ -51,7 +51,7 @@ programa
 		escreva("\nA média de filhos dos habitantes é: ",mat.arredondar(mediaFilhos, 2))
 		Util.aguarde(8000)limpa()
 		escreva("O maior salário entre os habitantes é: ",maiorSalario, " R$ ")
-		//escreva("\nO menor salário entre os habitantes é: ",menorSalario, " R$ ")
+		escreva("\nO menor salário entre os habitantes é: ",menorSalario, " R$ ")
 		escreva("\nO percentual de pessoas com salário até 100.00 R$ é: " ,mat.arredondar(percentualSalario100reais, 2))
 		}
 
@@ -61,7 +61,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 949; 
+ * @POSICAO-CURSOR = 1021; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

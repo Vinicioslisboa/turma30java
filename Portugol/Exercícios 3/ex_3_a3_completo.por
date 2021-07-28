@@ -6,8 +6,8 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro digito=0, totalSomatorioDigito=0
-		real mediaDigito=0.00, totalDigitos=0.00
+		inteiro digito=0
+		real mediaDigito=0.00, totalDigitos=0.00, contadorDigitos =0.00, totalSomatorioDigito=0.00
 
 		enquanto( digito >= 0)
 		{
@@ -15,10 +15,14 @@ programa
 			leia(digito)
 
 			totalSomatorioDigito+=digito
-			
+			contadorDigitos++
 		}
+		mediaDigito = totalSomatorioDigito/contadorDigitos
 		
+		limpa()
 		escreva("O valor do somatório total dos digitos é: ",totalSomatorioDigito)
+		escreva("\nO total de digitos escritos foram: ",contadorDigitos)
+		escreva("\nA média dos valores digitados foi: ",mediaDigito)
 		
 	}
 }
@@ -27,7 +31,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 675; 
+ * @POSICAO-CURSOR = 696; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
