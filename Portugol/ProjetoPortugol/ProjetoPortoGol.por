@@ -5,21 +5,30 @@ programa
 	inclua biblioteca Matematica --> Mat
 	inclua biblioteca Texto
 
+	// constante que dita o tamanho de todos os vetores e matrizes presentes no código. Relacionada com a diversidade de produtos.
+	const inteiro DIVERSIDADE_PRODUTOS = 10
+
+	// constante para o estoque inicial dos produtos. (tendo em mente que todos começam com a mesma quantidade).
+	const inteiro ESTOQUE_INICIAL = 10
+
+	// constante que dita a quantidade máxima de notas fiscais que podem ser salvas.
+	const inteiro LIMITE_NOTAS = 4
+
 	//matrizes e vetores que armazenam as notas fiscais passadas e todas as suas informações.
-	inteiro xVetor[10], estoqueSelecionadoMatriz[10][10], quantidadeFaturasVetor[10]
-	real valorFaturaVetor[10]
-	cadeia codigoMatriz[10][10], valorMatriz[10][10], produtoMatriz[10][10]
+	inteiro xVetor[LIMITE_NOTAS], estoqueSelecionadoMatriz[LIMITE_NOTAS][DIVERSIDADE_PRODUTOS], quantidadeFaturasVetor[LIMITE_NOTAS]
+	real valorFaturaVetor[LIMITE_NOTAS]
+	cadeia codigoMatriz[LIMITE_NOTAS][DIVERSIDADE_PRODUTOS], valorMatriz[LIMITE_NOTAS][DIVERSIDADE_PRODUTOS], produtoMatriz[LIMITE_NOTAS][DIVERSIDADE_PRODUTOS]
 	
 	// variáveis para ajuste do dia do calendário
-	cadeia diaCalendario, mesCalendario, diaCalendarioVetor[10], mesCalendarioVetor[10],anoCalendarioVetor[10]
+	cadeia diaCalendario, mesCalendario, diaCalendarioVetor[LIMITE_NOTAS], mesCalendarioVetor[LIMITE_NOTAS],anoCalendarioVetor[LIMITE_NOTAS]
 	
-	inteiro horaAtualVetor[10], minutoAtualVetor[10]
+	inteiro horaAtualVetor[LIMITE_NOTAS], minutoAtualVetor[LIMITE_NOTAS]
 
 
-	//apenas para auxiliar na formatação.
-	cadeia formataEstoqueSelecionado[10],
-	formataValorTotal[10],
-	formataImposto[10],
+	// variáveis apenas para auxiliar na formatação dentro da Nota Fiscal.
+	cadeia formataEstoqueSelecionado[DIVERSIDADE_PRODUTOS],
+	formataValorTotal[DIVERSIDADE_PRODUTOS],
+	formataImposto[DIVERSIDADE_PRODUTOS],
 	formataCodigo
 
 	inteiro 
@@ -28,7 +37,7 @@ programa
 
 	funcao inicio() {
 		// variáveis do código e produto:
-		cadeia codigo[10], produto[10], codigoDigitado
+		cadeia codigo[DIVERSIDADE_PRODUTOS], produto[DIVERSIDADE_PRODUTOS], codigoDigitado
 
 		// variável auxiliar para saber se o valor em "leia(quantidadeCompra) é inteiro ou não".
 		cadeia auxQuantidadeCompra
@@ -42,7 +51,7 @@ programa
 		 *  ocorra uma troca, valor é usado na função página de compras e na conta
 		 *  do valor total da compra.
 		*/
-		cadeia valor[10]
+		cadeia valor[DIVERSIDADE_PRODUTOS]
 
 		// variáveis com os valores: total da compra e fatura a pagar.
 		real valorTotalCompra = 0.00, valorFatura = 0.0
@@ -51,7 +60,7 @@ programa
 		inteiro quantidadeFaturas = 0
 		
 		// variáveis do estoque e vetor do carrinho:
-		inteiro estoqueSelecionado[10], quantidadeEstoque = 10, quantidadeCompra = 0, carrinho[10], estoqueInicial[10] 
+		inteiro estoqueSelecionado[DIVERSIDADE_PRODUTOS], quantidadeEstoque = ESTOQUE_INICIAL, quantidadeCompra = 0, carrinho[DIVERSIDADE_PRODUTOS], estoqueInicial[DIVERSIDADE_PRODUTOS] 
 		
 		// variáveis das respostas:
 		inteiro  opcaoPagamento
@@ -96,11 +105,12 @@ programa
 		valor[9] = "249.99"
 
 		//valores para estoque inicial e código:
-		para(x=0 ; x<10 ; x++) {
-			codigo[x] = "G2-"+(x+1)
+		para(x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) {
+			codigo[x] = "G2-"+(x+1)	
 			estoqueSelecionado[x] = 0
-			estoqueInicial[x] = 10			
-		}
+			estoqueInicial[x] = ESTOQUE_INICIAL
+		}		
+	
 		// (faça - enquanto) responsável pelo retorno ao início da página, após a compra.
 		faca {
 			limpa()
@@ -114,9 +124,29 @@ programa
 				}
 				
 				senao {
-					escreva("  ► Deseja fazer compras?[S/N]\n ")	
-					escreva(" ► Ou deseja visualizar sua(s) nota(s) fiscal(is) anterior(es)? [V]: ")
-					leia(fazerCompras)
+					
+					se (contadorNotaFiscal == LIMITE_NOTAS) {
+						faca {
+			
+							
+							escreva("\n ► Você fez muitas compras hoje!!\n")
+							escreva(" ► Volte amanhã para ver o estoque atualizado.\n")
+							escreva(" ► Deseja visualizar suas notas fiscais anteriores? [V]\n")
+							escreva(" ► Ou digite [N] para sair: ")
+							leia(fazerCompras)
+							se (Texto.caixa_alta(fazerCompras) != "N" e Texto.caixa_alta(fazerCompras) != "V") {
+								limpa()
+								cabecalho(3)
+								escreva("Resposta inválida.\n")
+							}
+						} enquanto (Texto.caixa_alta(fazerCompras) != "N" e Texto.caixa_alta(fazerCompras) != "V") 
+							
+					}
+					senao {
+						escreva("  ► Deseja fazer compras?[S/N]\n ")	
+						escreva(" ► Ou deseja visualizar sua(s) nota(s) fiscal(is) anterior(es)? [V]: ")
+						leia(fazerCompras)
+					}
 					se (Texto.caixa_alta(fazerCompras) == "N") {
 						respostaVoltarInicio = "N"
 					}
@@ -126,7 +156,7 @@ programa
 							escreva(" Digite o número da nota fiscal (exemplo: 1, 2, 3...) de acordo com a data de emissão: ")
 							leia(numeroNotaFiscal)
 							se (Tipos.cadeia_para_inteiro(numeroNotaFiscal, 10) >= contadorNotaFiscal){
-								escreva("\n Digite um valor válido!\n Você só tem ", contadorNotaFiscal," nota(s) fiscal(is).\n")
+								escreva("\n Digite um valor válido!\n Você só tem ", contadorNotaFiscal-1," nota(s) fiscal(is).\n")
 							}
 							senao se (Tipos.cadeia_e_inteiro(numeroNotaFiscal, 10) == falso){
 								escreva("\n Digite um valor válido! Um número inteiro: ")
@@ -175,7 +205,7 @@ programa
 								
 					
 									// (laço para e condicional se) responsáveis por escrever o produto do código solicitado.
-									para(x=0 ; x<10 ; x++) { 
+									para(x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) { 
 										
 										se(Texto.caixa_alta(codigoDigitado) == codigo[x]) {
 											validarCodigo = verdadeiro
@@ -220,7 +250,7 @@ programa
 							
 							senao se (Texto.caixa_alta(continuarCompras) == "N") {
 								
-								para (x=0 ; x<10 ; x++) {
+								para (x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) {
 									// aqui é necessário converter o valor para um número real.
 									valorTotalCompra += (Tipos.cadeia_para_real(valor[x]) * estoqueSelecionado[x])
 								}
@@ -265,7 +295,7 @@ programa
 	
 					
 	
-					para (x=0 ; x<10 ; x++) {
+					para (x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) {
 					// novo estoque inicial é formado pelos produtos que não foram retirados da compra anterior.
 					estoqueInicial[x] -= estoqueSelecionado[x]
 	
@@ -311,7 +341,7 @@ programa
 			} enquanto (Texto.caixa_alta(fazerCompras) != "N" e Texto.caixa_alta(fazerCompras) != "S")
 
 		//a compra foi finalizada, então quando retornar ao início, o estoque selecionado será igual a zero.
-		para (x=0 ; x < 10; x++){
+		para (x=0 ; x < DIVERSIDADE_PRODUTOS ; x++){
 			estoqueSelecionado[x] = 0
 		}
 		// a compra foi finalizada, então quando retornar ao início, a resposta continuar compras volta a ser SIM.
@@ -323,11 +353,10 @@ programa
 	}
 	
 	//função que chama o cabeçalho da loja sempre que aparece:
-	funcao cabecalho (inteiro linhaPrincipal) {
-		          escreva("\t\t      ► PORTO GOL ACESSÓRIOS ESPORTIVOS ◄\n")
-				escreva("\t Desconto real, qualidade constante, satisfação por inteiro !")
-				linha(linhaPrincipal)
-		
+	funcao cabecalho(inteiro linhaPrincipal) {
+		     escreva("\t\t      ► PORTO GOL ACESSÓRIOS ESPORTIVOS ◄\n")
+			escreva("\t Desconto real, qualidade constante, satisfação por inteiro !")
+			linha(linhaPrincipal)
 	}
 
 	//função que chama a linha de separações:
@@ -374,7 +403,7 @@ programa
 					
 		/* (laço para) que cria as informações presentes abaixo do menu: 
 		códigos, produtos, valores e estoque.*/
-		para(x=0 ; x<10 ; x++) { 
+		para(x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) { 
 						
 			escreva("║ ", codigo[x],"\t│ ",produto[x],"\t│ ",valor[x],"\t  │ ",estoqueInicial[x],"\t\t\t║\n")	
 					
@@ -388,7 +417,7 @@ programa
 		
 		carrinhoQuantidade = 0
 		
-		para (x=0 ; x < 10 ; x++) {
+		para (x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) {
 			se (carrinho[x] == 1 e estoqueSelecionado[x] != 0) {
 					carrinhoQuantidade++
 			}
@@ -401,7 +430,7 @@ programa
 		}
 		escreva("║    σ  σ [",carrinhoQuantidade, "]\t\t\t\t\t\t\t\t\t║\n")
 		escreva("║\t\t\t\t\t\t\t\t\t\t║\n")
-		para(x=0 ; x < 10 ; x++) {
+		para(x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) {
 			se (carrinho[x] == 1 e estoqueSelecionado[x] != 0) {
 			escreva("║ ", codigo[x],"\t│ ",produto[x],"\t│ ",valor[x],"\t  │[", estoqueInicial[x], "] QTDE - \t", estoqueSelecionado[x], "\t║\n")
 			}
@@ -434,16 +463,24 @@ programa
 			}
 		
 	
-			para (inteiro colunaMatriz = 0 ; colunaMatriz < 10 ; colunaMatriz ++){
+			para (inteiro colunaMatriz = 0 ; colunaMatriz < DIVERSIDADE_PRODUTOS ; colunaMatriz ++){
 				estoqueSelecionadoMatriz[numeroNotaFiscal][colunaMatriz] = estoqueSelecionado[colunaMatriz]
+				
 				codigoMatriz[numeroNotaFiscal][colunaMatriz] = codigo[colunaMatriz]
+				
 				valorMatriz[numeroNotaFiscal][colunaMatriz] = valor[colunaMatriz]
+				
 				produtoMatriz[numeroNotaFiscal][colunaMatriz] = produto[colunaMatriz]
 			}	
+			
 			xVetor[numeroNotaFiscal] = x
+			
 			valorFaturaVetor[numeroNotaFiscal] = valorFatura
+			
 			quantidadeFaturasVetor[numeroNotaFiscal] = quantidadeFaturas
+			
 			mesCalendarioVetor[numeroNotaFiscal] = mesCalendario
+			
 			diaCalendarioVetor[numeroNotaFiscal] = diaCalendario
 
 			
@@ -481,7 +518,7 @@ programa
 					
 
 					
-	para(x=0 ; x < 10 ; x++) {
+	para(x=0 ; x < DIVERSIDADE_PRODUTOS ; x++) {
 		
 		se (estoqueSelecionadoMatriz[numeroNotaFiscal][x] != 0) {
 						
@@ -531,7 +568,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 21918; 
+ * @POSICAO-CURSOR = 23646; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
