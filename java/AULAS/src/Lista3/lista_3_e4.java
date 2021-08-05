@@ -19,8 +19,9 @@ public class lista_3_e4 {
 	
 	public static void main(String[] args) {
 	//-----------------------------------------VAR-------------------------------------------------------
+		
 		Scanner leia = new Scanner(System.in);
-		int idade, contadorPessoas=0;
+		int idade = 0, contadorPessoas=0;
 		char sexo=' ', opcoes=' ', OP='S';
 		final int LIMITE_DE_PESSOAS = 150;
 		
@@ -41,18 +42,48 @@ public class lista_3_e4 {
 			System.out.println("Deseja continuar S/N: ");
 			OP = leia.next().toUpperCase().charAt(0);
 			
-		}
+		
 //--------------------------------------------Processos-----------------------------------------------	
 	
 		if(opcoes=='1') {
 			
 			numeroPessoasCalmas++;
 			
-			System.out.printf("O número de pessoas calmas é: %d",numeroPessoasCalmas);
+		}
+		if(sexo=='1' && opcoes=='2') {
+			
+			numeroMulheresNervosas++;
 			
 		}
-			//número de pessoas calmas; 
-		//o número de mulheres nervosas; 
+		if(sexo=='2' && opcoes=='3') {
+			
+			numeroHomensAgressivos++;
+			
+		}
+		if(sexo=='3' && opcoes=='1') {
+			
+			numeroOutrosCalmos++;
+
+		}
+		if(opcoes=='2' && idade > 40){
+			
+			numeroPessoasNervosasMais40Anos++;
+		
+		}
+		if(opcoes=='1' && idade < 18) {
+			
+			numeroPessoasCalmasMenos18Anos++;
+			
+		}
+		}
+		
+		System.out.println("Pessoas calmas "+numeroPessoasCalmas); 
+		System.out.println("Mulheres nervosas "+numeroMulheresNervosas); 
+		System.out.println("Homens agressivos "+numeroHomensAgressivos); 
+		System.out.println("Outros calmos "+numeroOutrosCalmos);
+		System.out.println("Pessoas nervosas acima 40 anos "+numeroPessoasNervosasMais40Anos); 
+		System.out.println("Pessoas acalmas abaixo 18 anos "+numeroPessoasCalmasMenos18Anos);
+			
 		//o número de homens agressivos; 
 		//o número de outros calmos;
 		//o número de pessoas nervosas com mais de 40 anos; 

@@ -7,27 +7,31 @@ public class lista_3_e2 {
 	public static void main(String[] args) {
 		
 		Scanner leia = new Scanner(System.in);
-		int numero=0,x;
+		int numero=0,x, contadorPar=0, contadorImpar=0;
 	//----------------------------------entradas------------------------------------	
+		
 		for(x = 0 ; x <= 2 ; x++) {
 			
 			System.out.println("Digite o valor:");
 			numero = leia.nextInt();
 			
+			if(numero%2==0) {
+				
+				contadorPar++;
+			}
+			
+			if(numero%2==1) {
+				
+				contadorImpar++;
+			}
+			
 			}
 		
-		if(numero%2 == 0) {
+		System.out.printf("A quantidade de números pares foi: %d\n",contadorPar);
+		System.out.printf("A quantidade de números ímpares foi: %d",contadorImpar);
 			
-			System.out.printf("%d",numero);
-			
-		}
 		
-		else {
-			
-			System.err.printf("%d",numero);
-			
-		}
-		
+
 		
 		
 		

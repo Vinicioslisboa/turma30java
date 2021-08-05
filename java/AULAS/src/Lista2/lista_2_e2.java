@@ -5,24 +5,44 @@ public class lista_2_e2 {
 	public static void main(String[] args) {
 		
 		Scanner leia = new Scanner(System.in);
-		double n1=0.00,n2=0.00,n3=0.00;
+		double x=0.00,y=0.00,z=0.00;
 		
 		System.out.println("Digite o primeiro valor: ");
-		n2 = leia.nextDouble();
+		x = leia.nextDouble();
 		System.out.println("Digite o segundo valor: ");
-		n2 = leia.nextDouble();
+		y = leia.nextDouble();
 		System.out.println("Digite o terceiro valor: ");
-		n3 = leia.nextDouble();
+		z = leia.nextDouble();
 
-	
-		if(n1 > n2 && n1 > n3 && n2 > n3) {
-			
-			System.out.printf("n1 %f",n1,"> n2 %f",n2," >n3 %f",n3);
+		if( ( x > y && x > z ) && ( y > z ) ) { //  x > y > z
+		    System.out.println(x);
+		    System.out.println(y);
+		    System.out.println(z);
 		}
-		else if(n2 > n1 && n2 > n3 && n1 > n3) {
-			
-			System.out.printf("n2 %.2f",n2,"> n1 %.2f",n1," >n3 %.2f",n3);
-
+		else if( ( x > y && x > z ) && ( z > y ) ) { // x > z > y
+		    System.out.println(x);
+		    System.out.println(z);
+		    System.out.println(y);
+		}
+		else if( ( y > x && y > z ) && ( x > z ) ) { // y > x > z
+		    System.out.println(y);
+		    System.out.println(x);
+		    System.out.println(z);
+		}
+		else if( ( y > x && y > z ) && ( z > x ) ) { // y > z > x
+		    System.out.println(y);
+		    System.out.println(z);
+		    System.out.println(x);
+		}
+		else if( ( z > x && z > y ) && ( x > y ) ) { // z > x > y
+		    System.out.println(z);
+		    System.out.println(x);
+		    System.out.println(y);
+		}
+		else if( ( z > x && z > y ) && ( y > x ) ) { // z > y > x
+		    System.out.println(z);
+		    System.out.println(y);
+		    System.out.println(x);
 		}
 		
 		
