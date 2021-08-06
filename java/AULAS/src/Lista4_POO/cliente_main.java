@@ -6,16 +6,16 @@ public class cliente_main {
 		// TODO Auto-generated method stub
 		
 		cliente exp1 = new cliente();
-		exp1.nome = "Maria";
-		exp1.numeroMatricula = 20211;
+		exp1.nome = "Beatriz";
+		exp1.numeroMatricula = "2021-M2E";
 		exp1.idade = 65;
-		exp1.dataDeFiliacao = "11/08/2021";
+		exp1.dataRegistro = "11/08/2021";
 		
-		exp1.calculoIdade(2021, 1998);
+		System.out.println("Seu nº de matricula é: "+exp1.numeroMatricula);
+		System.out.println("Seu nome é: "+exp1.nome);
+		exp1.idade(2021, 1996);
 		
 		
-		
-
 	}
 
 }

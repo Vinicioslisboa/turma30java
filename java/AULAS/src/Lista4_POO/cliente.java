@@ -8,24 +8,45 @@ public class cliente {
 	//em seguida crie um objeto cliente, defina as instancias deste objeto e 
 	//apresente as informações deste objeto no console.
 	
-	Scanner entrada = new Scanner(System.in);
+	Scanner leia = new Scanner(System.in);
 	public String nome;
-	public int numeroMatricula;
+	public String numeroMatricula;
 	public int idade;
-	public String dataDeFiliacao;
+	public int dataRegistro;
+	public boolean confirmar;
 	
-	
-	public void calculoIdade(int anoAtual, int anoNascimento) {
+	public void matricula(String numeroMatricula) {
 		
-		System.out.println(anoAtual - anoNascimento);
 		
 	}
 	
-	public void numeroMatricula() {
+	public void idade (int anoAtual, int anoNascimento) {
 		
-		System.out.println("Digite o número da matricula: ");
-		numeroMatricula = entrada.nextInt();
-		
+		idade = anoAtual - anoNascimento;
+		System.out.println(idade+" anos");
 	}
-
+	
+	public void dataRegistro(int dia, int mes, int ano) {
+		
+		System.out.println("Digite o dia do registro: ");
+		dia = leia.nextInt();
+		
+		System.out.println("Digite o mês do registro: ");
+		mes = leia.nextInt();
+		
+		System.out.println("Digite o ano do registro: ");
+		ano = leia.nextInt();
+		
+		System.out.println("O dia do registro foi: "+dia+"/"+mes+"/"+ano);
+		
+		if(confirmar==(true)) {
+			confirmar = leia.hasNext();
+			
+			
+		}
+		System.out.println("Confirmar ? S/N ");
+		confirmar = leia.hasNext();
+	}
+	
+	
 }
