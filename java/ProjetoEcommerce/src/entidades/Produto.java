@@ -7,7 +7,7 @@ public class Produto {
 	private double valor;
 	private int estoque;
 	
-	
+//CONSTRUTORES
 	public Produto(String codigo, String nome) {
 		super();
 		this.codigo = codigo;
@@ -28,6 +28,8 @@ public class Produto {
 			this.estoque = estoque;
 		}
 	}
+	
+//ENCAPSULAMENTO
 
 
 	public String getCodigo() {
@@ -64,10 +66,8 @@ public class Produto {
 		return estoque;
 	}
 
+//METODOS
 
-	/*public void setEstoque(int estoque) {
-		this.estoque = estoque;
-	}*/
 	
 	public void incluiEstoque (int quantidade) {
 		if(quantidade < 0) {
@@ -88,7 +88,21 @@ public class Produto {
 			
 			this.estoque -= quantidade;
 		}
+		
 	}
+//
+	public void escolherTamanho(String tamanho ) {
+		
+		
+	}
+
+
+	public void escolherCor(char cor) {
+		
+		
+	}
+	
+	
 	
 	
 	
