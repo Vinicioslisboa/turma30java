@@ -3,8 +3,8 @@ package entities;
 public class Funcionarios {
 	
 	private String matricula;
-	private int horasTrabalhadas;
-	private double valorPorHora;
+	protected int horasTrabalhadas;
+	protected double valorPorHora;
 	
 	//CONSTRUTORES
 	public Funcionarios(String matricula, int horasTrabalhadas, double valorPorHora) {

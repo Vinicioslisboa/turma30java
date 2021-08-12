@@ -1,9 +1,10 @@
+//VERSÃO 1.0
+
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.Calendar;
 
 public class EcommerceJava {
-	
 	
 	final static int DIVERSIDADE_PRODUTOS = 10;
 	final static int ESTOQUE_INICIAL = 10;

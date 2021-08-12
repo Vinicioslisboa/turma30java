@@ -15,13 +15,13 @@ public final class Vestuario extends Produto {
 	}
 //ENCAPSULAMENTO
 	
-
+	@Override
 	public String getTamanho() {
 		return tamanho;
 	}
 
 	
-
+	@Override
 	public char getCor() {
 		return cor;
 	}
@@ -56,8 +56,7 @@ public final class Vestuario extends Produto {
 		}
 		else{
 			
-			System.out.println("Digite uma cor válida.");
-			System.out.println("Digite a cor:");
+			System.out.printf("Digite uma cor válida \nR-Vermelho, G-Verde, B-Azul, W-Branco:\n");
 			cor = entrada.nextLine().toUpperCase().charAt(0);
 			escolherCor(cor);
 		}
