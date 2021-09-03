@@ -31,7 +31,7 @@ public class vetor_e_matriz_times {
 		
 		for (int x=1 ; x<3 ; x++) {// Roda o numero de rodadas
 			
-			System.out.println("Rodada "+x;); 
+			System.out.println("Rodada "+x); 
 			
 			for(int y=0 ; y<codTime.length ; y++) {// roda todos os times
 				

@@ -32,7 +32,7 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping("/id")
+	@GetMapping("/{id}")
 	public ResponseEntity<Produto> GetById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
