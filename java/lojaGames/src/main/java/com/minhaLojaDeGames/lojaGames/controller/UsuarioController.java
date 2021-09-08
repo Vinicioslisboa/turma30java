@@ -1,11 +1,7 @@
-package org.generation.blogPessoal.controller;
+package com.minhaLojaDeGames.lojaGames.controller;
 
 import java.util.Optional;
 
-import org.apache.catalina.User;
-import org.generation.blogPessoal.model.UserLogin;
-import org.generation.blogPessoal.model.Usuario;
-import org.generation.blogPessoal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.minhaLojaDeGames.lojaGames.model.UserLogin;
+import com.minhaLojaDeGames.lojaGames.model.Usuario;
+import com.minhaLojaDeGames.lojaGames.service.UsuarioService;
+
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin(origins="*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 	
 	@Autowired
@@ -34,7 +34,5 @@ public class UsuarioController {
 		return usuarioService.CadastrarUsuario(usuario).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.CONFLICT).build());
 	}
-
-
 
 }

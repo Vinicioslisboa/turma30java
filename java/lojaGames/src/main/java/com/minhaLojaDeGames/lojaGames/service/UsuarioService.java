@@ -1,19 +1,17 @@
-package org.generation.blogPessoal.service;
+package com.minhaLojaDeGames.lojaGames.service;
 
 import java.nio.charset.Charset;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
-import org.generation.blogPessoal.model.UserLogin;
-import org.generation.blogPessoal.model.Usuario;
-import org.generation.blogPessoal.repository.UsuarioRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.sun.xml.bind.v2.runtime.output.Encoded;
-
-import ch.qos.logback.core.encoder.Encoder;
+import com.minhaLojaDeGames.lojaGames.model.UserLogin;
+import com.minhaLojaDeGames.lojaGames.model.Usuario;
+import com.minhaLojaDeGames.lojaGames.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
@@ -58,5 +56,3 @@ public class UsuarioService {
 	}
 	
 }
-
-
