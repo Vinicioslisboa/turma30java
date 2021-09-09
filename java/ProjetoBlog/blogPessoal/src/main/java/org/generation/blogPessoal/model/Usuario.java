@@ -16,17 +16,28 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank
-	@Size(min=2, max=100)
+	@NotBlank(message =  "O campo nome é obrigatório")
+	@Size(min=2, max=100, message =  "O campo nome deve ter entre 2 e 100 caracteres")
 	private String nome;
 	
-	@NotBlank
-	@Size(min=5, max=100)
+	@NotBlank(message =  "O campo usuario é obrigatório")
+	@Size(min=5, max=100, message =  "O campo usuario deve ter entre 5 e 100 caracteres")
 	private String usuario;
 	
-	@NotBlank
-	@Size(min=5, max=100)
+	@NotBlank(message =  "O campo senha é obrigatório")
+	@Size(min=5, max=100, message =  "O campo senha deve ter entre 5 e 100 caracteres")
 	private String senha;
+	
+// Construtores	
+	public Usuario(long id, String nome, String usuario, String senha) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+	
+	public Usuario() {}
+//Getters and Setters
 
 	public long getId() {
 		return id;

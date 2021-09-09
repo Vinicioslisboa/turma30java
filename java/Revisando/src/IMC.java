@@ -11,7 +11,7 @@ public class IMC {
 
 	static void linha() {
 
-		System.out.println("---------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------");
 	}
 
 //--------------------------------------API-------------------------------------	
@@ -21,28 +21,39 @@ public class IMC {
 		Scanner leia = new Scanner(System.in);
 
 		double peso, altura, imc;
+		String nome;
+		
+		escrevaln("Digite seu nome: ");
+		nome = leia.next();
+		linha();
 		
 		escrevaln("Digite seu peso: ");
 		peso = leia.nextDouble();
 		linha();
 			
-if(peso <= 0) {
+while(peso <= 0) {
 	
-	escrevaln("Digite um valor número positivo maior que zero:");
+	escrevaln("Digite um valor positivo maior que zero:");
 	peso = leia.nextDouble();
 	linha();
 	
 } 
+
+escrevaln("Digite sua altura: ");
+altura = leia.nextDouble();
+linha();
+
+while(altura <= 0) {
 	
-	escrevaln("Digite sua altura: ");
+	escrevaln("Digite um valor positivo maior que zero:");
 	altura = leia.nextDouble();
 	linha();
-
+}
 
 		
 		imc = peso / (Math.pow(altura, 2));
 
-		System.out.printf("O seu IMC atual é: %.2f m²\n", imc);
+		System.out.printf("Olá %s, o seu IMC atual é: %.2f m²\n",nome, imc);
 		linha();
 
 		leia.close();
