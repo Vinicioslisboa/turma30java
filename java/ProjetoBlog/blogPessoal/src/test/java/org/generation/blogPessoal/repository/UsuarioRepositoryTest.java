@@ -13,8 +13,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UsuarioRepositoryTest {
 
@@ -47,7 +48,7 @@ public class UsuarioRepositoryTest {
 	public void findByNomeRetornaNome() {
 		
 		Usuario usuario = usuarioRepository.findByNome("João da Silva");
-		assertTrue(usuario.getNome()).equals("João da Silva");
+		assertTrue(usuario.getNome().equals("João da Silva"));
 			
 	}
 	

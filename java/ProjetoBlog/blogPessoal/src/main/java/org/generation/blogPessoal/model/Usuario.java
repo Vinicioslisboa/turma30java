@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -21,6 +22,7 @@ public class Usuario {
 	private String nome;
 	
 	@NotBlank(message =  "O campo usuario é obrigatório")
+	@Email(message = "Digite um email válido")
 	@Size(min=5, max=100, message =  "O campo usuario deve ter entre 5 e 100 caracteres")
 	private String usuario;
 	
